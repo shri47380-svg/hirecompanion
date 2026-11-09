@@ -1,0 +1,12 @@
+{
+  "framework": "vite",
+  "installCommand": "npm ci",
+  "buildCommand": "npm --workspace apps/web run build",
+  "outputDirectory": "apps/web/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "talentpilot-ai",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm --workspace apps/api run dev",
+    "dev:web": "npm --workspace apps/web run dev",
+    "build": "npm --workspace apps/web run build && npm --workspace apps/api run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

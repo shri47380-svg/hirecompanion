@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: hirecompanion-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm --workspace apps/api run build
+    startCommand: npm --workspace apps/api run start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+      - key: WEB_ORIGIN
+        sync: false
